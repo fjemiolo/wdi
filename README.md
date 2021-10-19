@@ -5,7 +5,8 @@ tekst
 ### trzy ###
 #### cztery ####
 [link](https://github.com/fjemiolo/wdi/)
-print ('Hello World')
+`print('Hello World')`
+coś
 * raz 
 * dwa
 
