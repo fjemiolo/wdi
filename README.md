@@ -19,3 +19,4 @@ x | y | z
 1 | 2 | 3 
 
 ![Kotel](/labolatorium&#32;2/cat.jpg)
+![pies](/labolatorium&#32;2/pies.jpg))
