@@ -9,7 +9,6 @@ pożądane wyjście:
 Należy obsłużyć wyjątek, w którym dwie sąsiadujące ze sobą wprowadzone przez użytkownika liczby są takie same.
 """
 
-
 class SameNumberError(Exception):
     pass
 
