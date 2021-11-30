@@ -5,7 +5,7 @@ Proszę napisać funkcję, która zwraca długość najdłuższego, spójnego po
 Do funkcji należy przekazać listę, funkcja powinna zwrócić długość znalezionego podciągu lub 0 jeżeli taki podciąg nie istnieje.
 """
 
-list = [15, 12, 4, 8, 11, 17, 2, 1, 1, 2, 24, 100]
+list = [15, 12, 4, 8, 11, 17, 2, 1, 1, 2, 24, 100, 200]
 print(list)
 N = len(list)
 
