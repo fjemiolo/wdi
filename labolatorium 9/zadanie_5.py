@@ -19,9 +19,9 @@ while True:
         else:
             break
     except:
-        print("Your input should be a natural number! Try again.")
+        print("Your input should be natural number! Try again.")
 
-A = [[0 for _ in range(N)] for _ in range(N)]
+Fib_Spiral = [[0 for _ in range(N)] for _ in range(N)]
 Fib = fibonacci_numbers(N * N)
 
 cnt = 0
@@ -30,23 +30,23 @@ high = N - 1
 layers = int((N + 1) / 2)
 for i in range(layers):
     for j in range(low, high + 1):  # left to right
-        A[i][j] = Fib[cnt]
+        Fib_Spiral[i][j] = Fib[cnt]
         cnt += 1
     for j in range(low + 1, high + 1):  # up to down
-        A[j][high] = Fib[cnt]
+        Fib_Spiral[j][high] = Fib[cnt]
         cnt += 1
     for j in range(high - 1, low - 1, -1):  # right to left
-        A[high][j] = Fib[cnt]
+        Fib_Spiral[high][j] = Fib[cnt]
         cnt += 1
     for j in range(high - 1, low, -1):  # down to up
-        A[j][low] = Fib[cnt]
+        Fib_Spiral[j][low] = Fib[cnt]
         cnt += 1
     low += 1
     high -= 1
-#    for element in A:
+#    for element in Fib_Spiral:
 #       print(element)
 #    print("----------")
 
 print("Your spiral of Fibonacci numbers: ")
-for line in A:
+for line in Fib_Spiral:
     print(line)
