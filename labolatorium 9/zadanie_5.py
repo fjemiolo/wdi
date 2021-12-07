@@ -5,8 +5,10 @@ i wypełniający ją liczbami ciągu Fibonacciego po spirali.
 Wymiar tablicy powinien być definiowany przez użytkownika.
 """
 
+import numpy as np
+
 def fibonacci_numbers(n):
-    F = [1] * (n)
+    F = [1] * n
     for i in range(2, n):
         F[i] = F[i - 1] + F[i - 2]
     return F
@@ -14,7 +16,7 @@ def fibonacci_numbers(n):
 while True:
     try:
         N = int(input("Enter size of your array: "))
-        if type(N) != int or N <= 0:
+        if N <= 0:
             raise ValueError
         else:
             break
@@ -48,5 +50,4 @@ for i in range(layers):
 #    print("----------")
 
 print("Your spiral of Fibonacci numbers: ")
-for line in Fib_Spiral:
-    print(line)
+print(np.matrix(Fib_Spiral))
