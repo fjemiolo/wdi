@@ -23,7 +23,7 @@ def fill_part(Tab, row, col, num, step):
             num = increment(num, step)
 
 
-def Sudoku_maker(Tab):
+def sudoku_maker(Tab):
     num = randint(1, 9)
     while True:
         step = randint(1, 9)
@@ -48,7 +48,7 @@ def Sudoku_maker(Tab):
     fill_part(Tab, 1, 1, num, step)
 
 
-def Sudoku_remover(Tab, cnt):
+def sudoku_remover(Tab, cnt):
     while cnt > 0:
         a, b = randint(0, 8), randint(0, 8)
         if Tab[a][b] != 0:
@@ -56,16 +56,16 @@ def Sudoku_remover(Tab, cnt):
             cnt -= 1
 
 
-def expandLine(line):
+def expand_line(line):
     return line[0] + line[5:9].join([line[1:5] * (3 - 1)] * 3) + line[9:13]
 
 
-def Print_board(board):
-    line0 = expandLine("╔═══╤═══╦═══╗")
-    line1 = expandLine("║ . │ . ║ . ║")
-    line2 = expandLine("╟───┼───╫───╢")
-    line3 = expandLine("╠═══╪═══╬═══╣")
-    line4 = expandLine("╚═══╧═══╩═══╝")
+def print_board(board):
+    line0 = expand_line("╔═══╤═══╦═══╗")
+    line1 = expand_line("║ . │ . ║ . ║")
+    line2 = expand_line("╟───┼───╫───╢")
+    line3 = expand_line("╠═══╪═══╬═══╣")
+    line4 = expand_line("╚═══╧═══╩═══╝")
     symbol = " 1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     nums = [[""] + [symbol[n] for n in row] for row in board]
     print(line0)
@@ -78,10 +78,10 @@ amount = int(input("Enter amount of remaining numbers: "))
 print("\n")
 Sudoku = [[0]*9 for _ in range(9)]
 
-Sudoku_maker(Sudoku)
+sudoku_maker(Sudoku)
 print("Solved Sudoku:")
-Print_board(Sudoku)
+print_board(Sudoku)
 print()
-Sudoku_remover(Sudoku, 81 - amount)
+sudoku_remover(Sudoku, 81 - amount)
 print("Unsolved Sudoku:")
-Print_board(Sudoku)
+print_board(Sudoku)
