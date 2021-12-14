@@ -21,6 +21,8 @@ def fill_part(Tab, row, col, num, step):
         for j in range(col, 9, 3):
             Tab[i][j] = num
             num = increment(num, step)
+    num = increment(num, step)
+    return Tab, num
 
 
 def transposition(Tab):
@@ -41,23 +43,16 @@ def sudoku_generator(Tab):
         step = randint(1, 9)
         if step % 3 != 0:
             break
-    fill_part(Tab, 0, 0, num, step)
-    num = increment(num, step)
-    fill_part(Tab, 2, 2, num, step)
-    num = increment(num, step)
-    fill_part(Tab, 1, 0, num, step)
-    num = increment(num, step)
-    fill_part(Tab, 0, 2, num, step)
-    num = increment(num, step)
-    fill_part(Tab, 2, 1, num, step)
-    num = increment(num, step)
-    fill_part(Tab, 1, 2, num, step)
-    num = increment(num, step)
-    fill_part(Tab, 0, 1, num, step)
-    num = increment(num, step)
-    fill_part(Tab, 2, 0, num, step)
-    num = increment(num, step)
-    fill_part(Tab, 1, 1, num, step)
+    Tab, num = fill_part(Tab, 0, 0, num, step)
+    Tab, num = fill_part(Tab, 2, 2, num, step)
+    Tab, num = fill_part(Tab, 1, 0, num, step)
+    Tab, num = fill_part(Tab, 0, 2, num, step)
+    Tab, num = fill_part(Tab, 2, 1, num, step)
+    Tab, num = fill_part(Tab, 1, 2, num, step)
+    Tab, num = fill_part(Tab, 0, 1, num, step)
+    Tab, num = fill_part(Tab, 2, 0, num, step)
+    Tab, num = fill_part(Tab, 1, 1, num, step)
+    return Tab
 
 
 def sudoku_remover(Tab, cnt):
@@ -90,8 +85,7 @@ amount = int(input("Enter amount of remaining numbers: "))
 print("\n")
 
 Sudoku_board = [[0] * 9 for _ in range(9)]
-sudoku_generator(Sudoku_board)
-Sudoku_board = transposition(Sudoku_board)
+Sudoku_board = transposition(sudoku_generator(Sudoku_board))
 print("Solved Sudoku:")
 print_board(Sudoku_board)
 print()
