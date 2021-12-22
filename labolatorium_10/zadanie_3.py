@@ -1,6 +1,6 @@
 """
 Zadanie 3 - lab 10
-Wykorzystując funkcje, napisz program tworzący plansze do Sudoku_board (a przynajmniej w miarę).
+Wykorzystując funkcje, napisz program tworzący plansze do Sudoku (a przynajmniej w miarę).
 Plansze należy następnie zapisać do osobnych plików.
 Należy zapisać je w takiej formie, żeby były czytelne dla ludzkiego oka.
 Ponadto trzeba obsłużyć niezbędne wyjątki.
@@ -86,8 +86,7 @@ def save_board(board, file, x):
 amount = int(input("Enter amount of remaining numbers: "))
 
 Sudoku_board = [[0] * 9 for _ in range(9)]
-Sudoku_board = sudoku_generator(Sudoku_board)
-Sudoku_board = transposition(Sudoku_board)
+Sudoku_board = transposition(sudoku_generator(Sudoku_board))
 save_board(Sudoku_board, 'solved_board.txt', 'Solved')
 sudoku_remover(Sudoku_board, 81 - amount)
 save_board(Sudoku_board, 'unsolved_board.txt', 'Unsolved')
