@@ -10,26 +10,30 @@ Należy zwizualizować rozkład hetmanów na szachownicy (w tym celu można wyko
 from random import randint
 
 
-def queen_check(Tab, N):
-    for i in range(N):
-        for j in range(i + 1, N):
-            if Tab[i][0] == Tab[j][0] or Tab[i][1] == Tab[j][1]:
-                return False
-            elif abs(Tab[i][0] - Tab[j][0]) == abs(Tab[i][1] - Tab[j][1]):
-                return False
-    return True
+class chess:
+    def queen_check(self, Tab, N):
+        for i in range(N):
+            for j in range(i + 1, N):
+                if Tab[i][0] == Tab[j][0] or Tab[i][1] == Tab[j][1]:
+                    return False
+                elif abs(Tab[i][0] - Tab[j][0]) == abs(Tab[i][1] - Tab[j][1]):
+                    return False
+        return True
 
+    def print_board(self, Tab):
+        for i in range(10):
+            for j in range(10):
+                print(chess_board[i][j], end="  ")
+            print("")
+        print("")
 
-N = 2
+N = 3
 data = [(randint(0, 9), randint(0, 9)) for _ in range(N)]
 chess_board = [['.'] * 10 for _ in range(10)]
 
 for i in range(N):
     chess_board[data[i][0]][data[i][1]] = 'X'
 
-for i in range(10):
-    for j in range(10):
-        print(chess_board[i][j], end='  ')
-    print("")
+chess().print_board(chess_board)
 
-print(queen_check(data, N))
+print(chess().queen_check(data, N))
