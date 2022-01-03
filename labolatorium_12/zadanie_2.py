@@ -35,5 +35,4 @@ for i in range(N):
     chess_board[data[i][0]][data[i][1]] = 'X'
 
 chess().print_board(chess_board)
-
 print(chess().queen_check(data, N))
