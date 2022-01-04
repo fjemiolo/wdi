@@ -21,7 +21,7 @@ def print_result(Tab):
         print()
 
 
-def knights_tour(Tab, x=0, y=0, cnt=1):
+def knights_tour(Tab, x, y, cnt=1):
     Tab[x][y] = cnt
     if cnt == len(Tab) ** 2:
         print_result(Tab)
@@ -33,6 +33,6 @@ def knights_tour(Tab, x=0, y=0, cnt=1):
     Tab[x][y] = 0
 
 
-size = 6
+size = 5
 board = [[0] * size for _ in range(size)]
-knights_tour(board)
+knights_tour(board, 0, 0)
